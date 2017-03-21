@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package pmu_server;
+
+service SynchrophasorData {
+  rpc Sample(SamplingFilter) returns (stream SynchrophasorDatum) {}
+}
+
+message SynchrophasorDatum {
+  // unique id across PMUs; assumes PMU device_id is unique and this PMU doesn't generate more than one record with the same TS
+  string id = 1;
+  uint64 ts = 2;
+
+  message PhaseData {
+    double Phase1CurrentAngle     =  1;
+    double Phase1CurrentMagnitude =  2;
+    double Phase2CurrentAngle     =  3;
+    double Phase2CurrentMagnitude =  4;
+    double Phase3CurrentAngle     =  5;
+    double Phase3CurrentMagnitude =  6;
+    double Phase1VoltageAngle     =  7;
+    double Phase1VoltageMagnitude =  8;
+    double Phase2VoltageAngle     =  9;
+    double Phase2VoltageMagnitude = 10;
+    double Phase3VoltageAngle     = 11;
+    double Phase3VoltageMagnitude = 12;
+  }
+
+  PhaseData phaseData = 3;
+}
+
+message SamplingFilter {}
