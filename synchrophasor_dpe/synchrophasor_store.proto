@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package synchrophasor_dpe;
+
+import "github.com/michaeldye/synchrophasor-proto/pmu_server/synchrophasor_data.proto";
+
+service SynchrophasorDPE {
+  rpc Store(stream pmu_server.SynchrophasorDatum) returns (DPEResponse) {}
+}
+
+message DPEResponse {}
