@@ -5,7 +5,14 @@ package synchrophasor_dpe;
 import "github.com/michaeldye/synchrophasor-proto/pmu_server/synchrophasor_data.proto";
 
 service SynchrophasorDPE {
-  rpc Store(stream pmu_server.SynchrophasorDatum) returns (DPEResponse) {}
+  rpc Store(stream HorizonDatumWrapper) returns (DPEResponse) {}
+}
+
+message HorizonDatumWrapper {
+  string Lat = 1;
+  string Lon = 2;
+  string AgreementID = 3;
+  pmu_server.SynchrophasorDatum Datum = 4;
 }
 
 message DPEResponse {}
