@@ -9,10 +9,13 @@ service SynchrophasorDPE {
 }
 
 message HorizonDatumWrapper {
-  string Lat = 1;
-  string Lon = 2;
-  string AgreementID = 3;
-  pmu_server.SynchrophasorDatum Datum = 4;
+  string Type = 1;
+  float Lat = 2;
+  float Lon = 3;
+  string AgreementID = 4;
+  string DeviceID = 5;
+  repeated string HAPartners = 6;
+  pmu_server.SynchrophasorDatum Datum = 7;
 }
 
 message DPEResponse {}
