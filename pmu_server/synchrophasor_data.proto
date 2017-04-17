@@ -10,6 +10,7 @@ message SynchrophasorDatum {
   // unique id across PMUs; assumes PMU device_id is unique and this PMU doesn't generate more than one record with the same TS
   string id = 1;
   uint64 ts = 2;
+  uint64 deviceTs = 3; // this is a ts reported by the PMU itself
 
   message PhaseData {
     double Phase1CurrentAngle     =  1;
@@ -26,7 +27,7 @@ message SynchrophasorDatum {
     double Phase3VoltageMagnitude = 12;
   }
 
-  PhaseData phaseData = 3;
+  PhaseData phaseData = 4;
 }
 
 message SamplingFilter {}
