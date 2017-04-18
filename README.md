@@ -12,13 +12,12 @@ The protocol specifications for all synchrophasor data projects.
 
  * Install `make`
  * Install Golang v.1.7.x or newer, set up an appropriate `$GOPATH`, etc. (cf. https://golang.org/doc/install)
- * Install `protoc` (cf. https://developers.google.com/protocol-buffers/docs/gotutorial)
 
 ## Building
 
 ### Considerations
 
-This project requires that you build it from the proper place in your `$GOPATH`. Also note that it will automatically install `govendor` in your `$GOPATH` when executing `make deps`.
+This project requires that you build it from the proper place in your `$GOPATH`. Also note that it will automatically install `govendor` and `protoc` in your `$GOPATH` during execution.
 
 ### Steps
 
