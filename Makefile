@@ -3,9 +3,8 @@ VERSION = $(shell cat VERSION)
 
 all: build
 
-build: $(find . -not -iname "*.proto" -print0) $(GOPATH)/bin/protoc
-	cd $(GOPATH)/src && \
-		find ./github.com/michaeldye/synchrophasor-proto -iname "*.proto" -print0 | xargs -0 -I {} protoc --go_out=plugins=grpc:. {}
+build: $(find . -not -iname "*.proto" -print0) $(GOPATH)/bin/protoc-gen-go
+	find . -iname "*.proto" -print0 | xargs -0 -I {} protoc --proto_path=. --go_out=plugins=grpc:. {}
 
 clean:
 	find . -iname "*.pb.go" -print0 | xargs -0 rm -f
@@ -19,7 +18,7 @@ publish: dirty clean
 	git tag $(VERSION) -f
 	git push -f --tags canonical master
 
-$(GOPATH)/bin/protoc:
+$(GOPATH)/bin/protoc-gen-go:
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
-.PHONY: clean dirty publish protoc
+.PHONY: clean dirty publish
