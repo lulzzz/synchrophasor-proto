@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package pmu_server;
+option go_package = "pmu_server";
 
 service SynchrophasorData {
   rpc Sample(SamplingFilter) returns (stream SynchrophasorDatum) {}

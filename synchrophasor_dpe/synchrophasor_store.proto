@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package synchrophasor_dpe;
+option go_package = "synchrophasor_dpe";
 
 import "pmu_server/synchrophasor_data.proto";
 
