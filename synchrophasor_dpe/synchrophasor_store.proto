@@ -14,8 +14,10 @@ message HorizonDatumWrapper {
   float lon = 3;
   string agreementId = 4;
   string deviceId = 5;
-  repeated string haPartners = 6;
-  pmu_server.SynchrophasorDatum datum = 7;
+  string workloadVersion = 6;
+
+  repeated string haPartners = 7;
+  pmu_server.SynchrophasorDatum datum = 8;
 }
 
 message DPEResponse {}
