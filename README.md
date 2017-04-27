@@ -18,7 +18,7 @@ The protocol specifications for all synchrophasor data projects.
 
 ### Considerations
 
-This project requires that you build it from the proper place in your `$GOPATH`. Also note that it will automatically install `govendor` and `protoc` in your `$GOPATH` during execution.
+This project requires that you build it from the proper place in your `$GOPATH`. Also note that it will automatically install `govendor` and the protobuf Golang bindings in your `$GOPATH` during execution.
 
 ### Steps
 
